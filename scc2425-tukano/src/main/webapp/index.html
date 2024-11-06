@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCC Backend Interface</title>
+</head>
+<body>
+<h1>SCC Backend Interface</h1>
+<p>Esta página contém formulários para todas as operações disponíveis nas interfaces de Shorts, Users e Blobs.</p>
+
+<h2>Shorts Service</h2>
+<form action="/shorts/createShort" method="POST">
+    <h3>Create Short</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/deleteShort" method="POST">
+    <h3>Delete Short</h3>
+    <label>Short ID: <input type="text" name="shortId" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/getShort" method="GET">
+    <h3>Get Short</h3>
+    <label>Short ID: <input type="text" name="shortId" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/getShorts" method="GET">
+    <h3>Get User Shorts</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/follow" method="POST">
+    <h3>Follow/Unfollow User</h3>
+    <label>User ID 1: <input type="text" name="userId1" required></label><br>
+    <label>User ID 2: <input type="text" name="userId2" required></label><br>
+    <label>Following:
+        <select name="isFollowing" required>
+            <option value="true">Follow</option>
+            <option value="false">Unfollow</option>
+        </select>
+    </label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/followers" method="GET">
+    <h3>Get Followers</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/like" method="POST">
+    <h3>Like/Unlike Short</h3>
+    <label>Short ID: <input type="text" name="shortId" required></label><br>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Like:
+        <select name="isLiked" required>
+            <option value="true">Like</option>
+            <option value="false">Unlike</option>
+        </select>
+    </label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/likes" method="GET">
+    <h3>Get Short Likes</h3>
+    <label>Short ID: <input type="text" name="shortId" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/getFeed" method="GET">
+    <h3>Get User Feed</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/shorts/deleteAllShorts" method="POST">
+    <h3>Delete All Shorts for User</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <label>Token: <input type="text" name="token" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<h2>Users Service</h2>
+<form action="/users/createUser" method="POST">
+    <h3>Create User</h3>
+    <label>User Object: <input type="text" name="user" required placeholder="JSON format"></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/users/getUser" method="GET">
+    <h3>Get User Information</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Password: <input type="password" name="pwd" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/users/updateUser" method="POST">
+    <h3>Update User Information</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Password: <input type="password" name="pwd" required></label><br>
+    <label>User Object: <input type="text" name="user" required placeholder="JSON format"></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/users/deleteUser" method="POST">
+    <h3>Delete User</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Password: <input type="password" name="pwd" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/users/searchUsers" method="GET">
+    <h3>Search Users</h3>
+    <label>Pattern: <input type="text" name="pattern" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<h2>Blobs Service</h2>
+<form action="/blobs/upload" method="POST" enctype="multipart/form-data">
+    <h3>Upload Blob</h3>
+    <label>Blob ID: <input type="text" name="blobId" required></label><br>
+    <label>File: <input type="file" name="file" required></label><br>
+    <label>Token: <input type="text" name="token" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/blobs/download" method="GET">
+    <h3>Download Blob</h3>
+    <label>Blob ID: <input type="text" name="blobId" required></label><br>
+    <label>Token: <input type="text" name="token" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/blobs/delete" method="POST">
+    <h3>Delete Blob</h3>
+    <label>Blob ID: <input type="text" name="blobId" required></label><br>
+    <label>Token: <input type="text" name="token" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+<form action="/blobs/deleteAllBlobs" method="POST">
+    <h3>Delete All Blobs for User</h3>
+    <label>User ID: <input type="text" name="userId" required></label><br>
+    <label>Token: <input type="text" name="token" required></label><br>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
